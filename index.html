@@ -38,12 +38,40 @@
         <section id="projects">
             <h3>Projects</h3>
             <div class="project-card scroll-fade">
-                <h4>Turn Unknown Spaces into Familiar Places</h4>
-                <p><em>Engineering Design I & II, Fall 2024 - Spring 2025</em></p>
-                <p>As the lead backend developer on a team project, I designed and implemented a secure and scalable indoor navigation system on AWS for individuals with mobility impairments. My key role was architecting the cloud solution with a focus on security, including a PostgreSQL database in a secure VPC using AWS RDS and a serverless API with Python/Flask, ensuring least-privilege access with IAM roles.</p>
-                <p><strong>Technologies:</strong> Python, Flask, AWS (RDS, Lambda, API Gateway, S3, IAM, VPC), PostgreSQL, REST APIs</p>
-                <a href="https://github.com/acoggins2022/Indoor-Navigation-System-Project" target="_blank" class="btn-link">View Project Details on GitHub &rarr;</a>
-            </div>
+    <h4>Turn Unknown Spaces into Familiar Places</h4>
+    <p><em>Engineering Design I & II, Fall 2024 - Spring 2025</em></p>
+
+    <!-- Project Goal/Problem -->
+    <div class="project-details">
+        <h4>The Problem</h4>
+        <p>"Navigating unfamiliar indoor spaces poses significant challenges for individuals with mobility disabilities, often resulting in dependency and reduced quality of life. This project proposes an innovative solution designed to enhance the independence and safety of this demographic through a sophisticated navigational aid system."</p>
+    </div>
+
+    <!-- Team Photo -->
+    <img src="Project_Pic1.jpg" alt="Our team presenting the project" style="width:100%; max-width:600px; margin: 20px 0; border-radius:8px; border: 1px solid #dee2e6;">
+
+    <!-- My Contributions -->
+    <div class="project-details">
+        <h4>My Role & Contributions</h4>
+        <p>As the lead backend developer, I was responsible for designing and implementing the cloud infrastructure on AWS. My key role was architecting the cloud solution with a focus on security, including a PostgreSQL database in a secure VPC using AWS RDS and a serverless API with Python/Flask, ensuring least-privilege access with IAM roles. I also co-authored the literature review and wrote the final decision justification for our technology stack.</p>
+    </div>
+
+    <!-- Database Design -->
+    <div class="project-details">
+        <h4>Database Design</h4>
+        <p>I designed the PostgreSQL database schema from the ground up to efficiently store spatial data, user information, and navigation routes. The design ensures data integrity and supports complex queries needed for pathfinding.</p>
+        <img src="ER-Diagram.png" alt="Database ER Diagram" style="width:100%; max-width:600px; margin-top:15px; border-radius:8px; border: 1px solid #dee2e6;">
+    </div>
+    
+    <!-- Technical Challenges -->
+    <div class="project-details">
+        <h4>Technical Challenges & Lessons Learned</h4>
+        <p>A key lesson was in pathfinding optimization. The A* algorithm performs well in static settings, but we identified that it struggles with real-time recalculations when encountering moving obstacles. Future iterations would benefit from exploring probabilistic path planning methods like D* or RRT to enhance adaptability in dynamic environments.</p>
+    </div>
+
+    <p style="margin-top: 25px;"><strong>Technologies:</strong> Python, Flask, AWS (RDS, Lambda, API Gateway, S3, IAM, VPC), PostgreSQL, REST APIs</p>
+    <a href="https://github.com/acoggins2022/Indoor-Navigation-System-Project" target="_blank" class="btn-link">View Project Details on GitHub &rarr;</a>
+</div>
             <div class="project-card scroll-fade">
                 <h4>Java Daily Planner Application</h4>
                 <p><em>Object-Oriented Design & Programming, Spring 2024</em></p>
