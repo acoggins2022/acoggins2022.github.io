@@ -1,0 +1,229 @@
+/* General Body Styles */
+:root {
+    --primary-color: #0056b3; /* A deeper, professional blue */
+    --secondary-color: #495057; /* Dark gray for text */
+    --background-color: #f8f9fa; /* Light gray background */
+    --container-bg: #ffffff;
+    --border-color: #dee2e6;
+    --header-grad-start: #0056b3;
+    --header-grad-end: #007bff;
+    --card-border-left: #007bff;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background-color);
+    color: var(--secondary-color);
+    margin: 0;
+    padding: 20px;
+    line-height: 1.7;
+}
+
+.container {
+    max-width: 950px;
+    margin: 20px auto;
+    background: var(--container-bg);
+    padding: 40px 50px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+/* Header Styles */
+header {
+    text-align: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 40px;
+}
+
+header h1 {
+    font-size: 3em;
+    font-weight: 700;
+    color: #212529;
+    margin: 0;
+}
+
+header h2 {
+    font-size: 1.3em;
+    font-weight: 400;
+    color: var(--primary-color);
+    margin-top: 10px;
+}
+
+/* Section Styles */
+section {
+    margin-bottom: 50px;
+}
+
+h3 {
+    font-size: 2em;
+    font-weight: 700;
+    color: #343a40;
+    border-bottom: 3px solid var(--primary-color);
+    padding-bottom: 12px;
+    margin-bottom: 30px;
+}
+
+h4 {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #343a40;
+    margin-top: 0;
+}
+
+p {
+    font-size: 1.05em;
+    color: #495057;
+}
+
+/* Project Card Styles */
+.project-card {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-left: 5px solid var(--card-border-left);
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
+}
+
+.project-card p strong {
+    color: #343a40;
+}
+
+.btn-link {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.btn-link:hover {
+    color: #004494;
+}
+
+/* Skills Grid Styles */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.skill-category ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skill-category li {
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.skill-category li:hover {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+
+/* Education Card Styles */
+.education-card {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.education-card p {
+    margin: 5px 0 0 0;
+}
+
+.education-card p em {
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Certifications Card Styles */
+.cert-card {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.cert-card.placeholder {
+    background-color: #f8f9fa;
+    border-style: dashed;
+    color: #6c757d;
+}
+
+.cert-card p {
+    margin: 5px 0 0 0;
+}
+
+/* Footer Styles */
+footer {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid var(--border-color);
+}
+
+.contact-links a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 700;
+    margin: 0 15px;
+    transition: color 0.3s ease;
+}
+
+.contact-links a:hover {
+    text-decoration: underline;
+    color: #004494;
+}
+
+/* Icon Styling */
+.contact-links i {
+    margin-right: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 25px;
+    }
+    header h1 {
+        font-size: 2.5em;
+    }
+    header h2 {
+        font-size: 1.1em;
+    }
+    h3 {
+        font-size: 1.7em;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 20px 15px;
+    }
+    header h1 {
+        font-size: 2.2em;
+    }
+    h3 {
+        font-size: 1.6em;
+    }
+}
