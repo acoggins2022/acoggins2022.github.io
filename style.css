@@ -1,8 +1,8 @@
 /* General Body Styles */
 :root {
-    --primary-color: #0056b3; /* A deeper, professional blue */
-    --secondary-color: #495057; /* Dark gray for text */
-    --background-color: #f8f9fa; /* Light gray background */
+    --primary-color: #0056b3;
+    --secondary-color: #495057;
+    --background-color: #f8f9fa;
     --container-bg: #ffffff;
     --border-color: #dee2e6;
     --header-grad-start: #0056b3;
@@ -226,4 +226,36 @@ footer {
     h3 {
         font-size: 1.6em;
     }
+}
+
+/* Work Experience Card Styles */
+.work-card {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.work-card p {
+    margin: 5px 0 10px 0;
+}
+
+.work-card ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.work-card li {
+    margin-bottom: 10px;
+    font-size: 1.05em;
+    color: #495057;
+}
+
+/* Skills Grid Adjustment for 4 columns */
+.skills-grid {
+    display: grid;
+    /* Adjusted minmax to better fit 4 items on larger screens */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
 }
