@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Playground - Andrew Coggins</title>
+
+    <!-- Stylesheets & Fonts -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/playground.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/b09e498364.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- ============================================= -->
+    <!-- Navigation Bar                                -->
+    <!-- ============================================= -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Andrew Coggins</a>
+            
+            <!-- Hamburger button for mobile -->
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+
+            <!-- Navigation links -->
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="playground.html">Playground</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <!-- Resume button for mobile menu -->
+                <li class="nav-resume-mobile">
+                    <a href="assets/Resume.pdf" download="Andrew_Coggins_Resume.pdf" class="btn-resume">Download Resume</a>
+                </li>
+            </ul>
+            
+            <!-- Resume button for desktop view -->
+            <a href="assets/Resume.pdf" download="Andrew_Coggins_Resume.pdf" class="btn-resume-desktop">Download Resume</a>
+        </div>
+    </nav>
+
+    <!-- Main Page Content -->
+    <main class="container">
+
+        <!-- ============================================= -->
+        <!-- Playground Header                           -->
+        <!-- ============================================= -->
+        <header class="playground-header">
+            <h1>Interactive Playground</h1>
+            <p>A collection of small web applications I've built to demonstrate various programming concepts and skills. More to come!</p>
+        </header>
+
+        <!-- ============================================= -->
+        <!-- Playground Item 1: Statistical Calculator   -->
+        <!-- ============================================= -->
+        <section class="playground-card scroll-fade">
+            <h3>Statistical Calculator</h3>
+            <p class="card-description">A simple tool built with JavaScript to perform basic statistical calculations on a set of numbers. This demonstrates fundamental programming logic and DOM manipulation.</p>
+            <div class="calculator-container">
+                <div class="calculator-inputs">
+                    <label for="num1">Number 1</label>
+                    <input type="number" id="num1" placeholder="e.g., 10">
+                    <label for="num2">Number 2</label>
+                    <input type="number" id="num2" placeholder="e.g., 25">
+                    <label for="num3">Number 3</label>
+                    <input type="number" id="num3" placeholder="e.g., 5">
+                    <button type="button" id="calculate-btn">Calculate</button>
+                </div>
+                <div class="calculator-results">
+                    <h4>Results</h4>
+                    <p><strong>Maximum:</strong> <span id="max-result">-</span></p>
+                    <p><strong>Minimum:</strong> <span id="min-result">-</span></p>
+                    <p><strong>Average:</strong> <span id="avg-result">-</span></p>
+                    <p><strong>Median:</strong> <span id="median-result">-</span></p>
+                    <p><strong>Range:</strong> <span id="range-result">-</span></p>
+                    <p id="error-message" class="error-text"></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================= -->
+        <!-- Playground Item 2: Tic-Tac-Toe Game         -->
+        <!-- ============================================= -->
+        <section class="playground-card scroll-fade">
+            <h3>Tic-Tac-Toe</h3>
+            <p class="card-description">A classic Tic-Tac-Toe game built with JavaScript. This project demonstrates game state management, win condition checking, and dynamic UI updates.</p>
+            <div class="tictactoe-container">
+                <div class="tictactoe-info">
+                    <h4 id="game-status">Player X's Turn</h4>
+                    <div class="scores">
+                        <span>Player X: <span id="score-x">0</span></span>
+                        <span>Player O: <span id="score-o">0</span></span>
+                    </div>
+                </div>
+                <div id="tictactoe-board" class="tictactoe-board">
+                    <!-- Game board cells will be generated by JavaScript -->
+                </div>
+                <div class="tictactoe-controls">
+                    <button id="restart-game-btn">Restart Game</button>
+                    <button id="clear-score-btn">Clear Score</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================= -->
+    <!-- Footer & Contact Section                      -->
+    <!-- ============================================= -->
+    <footer id="contact">
+        <h3>Contact Me</h3>
+        <p>I'm currently seeking new opportunities. Please feel free to reach out!</p>
+        <div class="contact-links">
+            <a href="mailto:Cogginsx64@gmail.com"><i class="fas fa-envelope"></i> Cogginsx64@gmail.com</a>
+            <span>&nbsp;|&nbsp;</span>
+            <a href="https://linkedin.com/in/andrew-coggins-89126384" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <span>&nbsp;|&nbsp;</span>
+            <a href="https://profile.indeed.com/p/andrewc-e4l1d6g" target="_blank" rel="noopener noreferrer"><i class="fas fa-info-circle"></i> Indeed</a>
+            <span>&nbsp;|&nbsp;</span>
+            <a href="https://github.com/acoggins2022" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+    </footer>
+
+    <!-- ============================================= -->
+    <!-- JavaScript Files                              -->
+    <!-- ============================================= -->
+    <script src="js/playground.js" defer></script>
+    <script src="js/script.js" defer></script> 
+</body>
+</html>

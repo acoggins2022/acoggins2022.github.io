@@ -4,28 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andrew Coggins - Cloud & Security Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- Stylesheets & Fonts -->
+    <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
     <script src="https://kit.fontawesome.com/b09e498364.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    
+
+    <!-- ============================================= -->
+    <!-- Navigation Bar                                -->
+    <!-- ============================================= -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">Andrew Coggins</a>
+            <a href="index.html" class="nav-logo">Andrew Coggins</a>
+            
+            <!-- Hamburger button for mobile -->
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+
+            <!-- Navigation links -->
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="playground.html">Playground</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <!-- Resume button for mobile menu -->
+                <li class="nav-resume-mobile">
+                    <a href="assets/Resume.pdf" download="Andrew_Coggins_Resume.pdf" class="btn-resume">Download Resume</a>
+                </li>
             </ul>
-            <a href="Resume.pdf" download="Andrew_Coggins_Resume.pdf" class="btn-resume">Download Resume</a>
+            
+            <!-- Resume button for desktop view -->
+            <a href="assets/Resume.pdf" download="Andrew_Coggins_Resume.pdf" class="btn-resume-desktop">Download Resume</a>
         </div>
     </nav>
 
-    <div class="container">
+    <!-- Main Page Content -->
+    <main class="container">
+
+        <!-- ============================================= -->
+        <!-- Header / Hero Section                         -->
+        <!-- ============================================= -->
         <header>
             <div class="header-content">
                 <h1>Andrew Coggins</h1>
@@ -33,114 +58,62 @@
             </div>
         </header>
 
+        <!-- ============================================= -->
+        <!-- About Me Section                              -->
+        <!-- ============================================= -->
         <section id="about">
             <h3>About Me</h3>
             <p>
-                I'm a Computer Science graduate from Florida Atlantic University (GPA: 3.75) with a deep passion for the intersection of cloud computing and cybersecurity. My academic projects, which include designing and implementing a secure backend on AWS using services like RDS, Lambda, and IAM, have solidified my goal of building and protecting robust cloud infrastructure. I am actively seeking an entry-level Cloud Security Engineer or Security Analyst role where I can apply my skills in AWS, Python, and security principles to help protect enterprise systems.
+                I'm a Computer Science graduate from Florida Atlantic University (GPA: 3.75) with a deep passion for the intersection of cloud computing and cybersecurity. My academic projects, which include designing and implementing a secure backend on AWS, have solidified my goal of building and protecting robust cloud infrastructure. I am actively seeking an entry-level role where I can apply my skills in AWS, Python, and security principles to help protect enterprise systems.
             </p>
         </section>
 
-        <section id="education">
-            <h3>Education</h3>
-            <div class="education-card scroll-fade">
-                <h4>Florida Atlantic University</h4>
-                <p><strong>Bachelor of Science in Computer Science</strong></p>
-                <p><em>Expected Graduation: August 2025 | GPA: 3.75 / 4.0</em></p>
-            </div>
-        </section>
-
+        <!-- ============================================= -->
+        <!-- Projects Section                              -->
+        <!-- ============================================= -->
         <section id="projects">
-            <h3>Projects</h3>
-            <div class="project-card scroll-fade">
-    <h4>Turn Unknown Spaces into Familiar Places</h4>
-    <p><em>Engineering Design I & II, Fall 2024 - Spring 2025</em></p>
+            <h3>My Projects</h3>
+            <div class="project-grid">
+                <!-- Project 1: Indoor Navigation System -->
+                <div class="project-summary-card scroll-fade">
+                    <h4>Indoor Navigation System</h4>
+                    <p>Led backend development for a cloud-based indoor navigation system on AWS to assist individuals with mobility impairments.</p>
+                    <div class="tech-tags">
+                        <span>AWS</span><span>Python</span><span>PostgreSQL</span><span>Flask</span>
+                    </div>
+                    <a href="project-navigation.html" class="btn-link">View Project Details &rarr;</a>
+                    <a href="https://github.com/acoggins2022/Indoor-Navigation-System-Project.git" target="_blank" rel="noopener noreferrer" class="btn-link">View on Github &rarr;</a>
+                </div>
 
-    <!-- Project Goal/Problem -->
-    <div class="project-details">
-        <h4>The Problem</h4>
-        <p>"Navigating unfamiliar indoor spaces poses significant challenges for individuals with mobility disabilities, often resulting in dependency and reduced quality of life. This project proposes an innovative solution designed to enhance the independence and safety of this demographic through a sophisticated navigational aid system."</p>
-    </div>
-
-    <!-- Team Photo -->
-    <img src="Project_Pic1.jpg" alt="Our team presenting the project" style="width:100%; max-width:600px; margin: 20px 0; border-radius:8px; border: 1px solid #dee2e6;">
-
-    <!-- My Contributions -->
-    <div class="project-details">
-        <h4>My Role & Contributions</h4>
-        <p>As the lead backend developer, I was responsible for designing and implementing the cloud infrastructure on AWS. My key role was architecting the cloud solution with a focus on security, including a PostgreSQL database in a secure VPC using AWS RDS and a serverless API with Python/Flask, ensuring least-privilege access with IAM roles. I also co-authored the literature review and wrote the final decision justification for our technology stack.</p>
-    </div>
-
-    <!-- Database Design -->
-    <div class="project-details">
-        <h4>Database Design</h4>
-        <p>I designed the PostgreSQL database schema from the ground up to efficiently store spatial data, user information, and navigation routes. The design ensures data integrity and supports complex queries needed for pathfinding.</p>
-        <img src="ER-Diagram.png" alt="Database ER Diagram" style="width:100%; max-width:600px; margin-top:15px; border-radius:8px; border: 1px solid #dee2e6;">
-    </div>
-    
-    <!-- Technical Challenges -->
-    <div class="project-details">
-        <h4>Technical Challenges & Lessons Learned</h4>
-        <p>A key lesson was in pathfinding optimization. The A* algorithm performs well in static settings, but we identified that it struggles with real-time recalculations when encountering moving obstacles. Future iterations would benefit from exploring probabilistic path planning methods like D* or RRT to enhance adaptability in dynamic environments.</p>
-    </div>
-
-    <p style="margin-top: 25px;"><strong>Technologies:</strong> Python, Flask, AWS (RDS, Lambda, API Gateway, S3, IAM, VPC), PostgreSQL, REST APIs</p>
-    <a href="https://github.com/acoggins2022/Indoor-Navigation-System-Project" target="_blank" class="btn-link">View Project Details on GitHub &rarr;</a>
-</div>
-            <div class="project-card scroll-fade">
-                <h4>Java Daily Planner Application</h4>
-                <p><em>Object-Oriented Design & Programming, Spring 2024</em></p>
-                <p>Contributed to a team developing a desktop daily planner using Java and the Swing GUI toolkit. My responsibilities included implementing user account management, event creation with conflict detection, and multiple calendar views. I applied object-oriented principles and utilized Java Serialization for persisting user data.</p>
-                <p><strong>Technologies:</strong> Java, Swing GUI, Object-Oriented Programming (OOP), Java Serialization</p>
-                <a href="https://github.com/acoggins2022/COP4331_Project" target="_blank" class="btn-link">View on GitHub &rarr;</a>
+                <!-- Project 2: Java Daily Planner -->
+                <div class="project-summary-card scroll-fade">
+                    <h4>Java Daily Planner</h4>
+                    <p>A desktop daily planner application built with Java and the Swing GUI toolkit, featuring user accounts and event scheduling.</p>
+                     <div class="tech-tags">
+                        <span>Java</span><span>Swing GUI</span><span>OOP</span>
+                    </div>
+                    <a href="project-planner.html" class="btn-link">View Project Details &rarr;</a>
+                    <a href="https://github.com/acoggins2022/COP4331_Project" target="_blank" rel="noopener noreferrer" class="btn-link">View on GitHub &rarr;</a>
+                </div>
             </div>
         </section>
-
+        
+        <!-- ============================================= -->
+        <!-- Technical Skills Section                      -->
+        <!-- ============================================= -->
         <section id="skills">
             <h3>Technical Skills</h3>
             <div class="skills-grid">
-                <div class="skill-category scroll-fade">
-                    <h4>Cloud & DevOps</h4>
-                    <ul>
-                        <li>AWS (RDS, Lambda, API Gateway, S3, IAM, VPC)</li>
-                        <li>Docker</li>
-                        <li>Git</li>
-                        <li>REST API Development</li>
-                        <li>Flask</li>
-                    </ul>
-                </div>
-                <div class="skill-category scroll-fade">
-                    <h4>Languages & Databases</h4>
-                    <ul>
-                        <li>Python</li>
-                        <li>Java</li>
-                        <li>C/C++</li>
-                        <li>SQL</li>
-                        <li>PostgreSQL (incl. PostGIS)</li>
-                    </ul>
-                </div>
-                <div class="skill-category scroll-fade">
-                    <h4>Security</h4>
-                    <ul>
-                        <li>Defensive Security (Blue Team)</li>
-                        <li>Offensive Security (Red Team)</li>
-                        <li>Foundations of Cybersecurity</li>
-                        <li>Network Protocols (HTTP)</li>
-                        <li>IAM & VPC Management</li>
-                    </ul>
-                </div>
-                <div class="skill-category scroll-fade">
-                    <h4>CS Concepts</h4>
-                    <ul>
-                        <li>Data Structures & Algorithms</li>
-                        <li>Object-Oriented Programming (OOP)</li>
-                        <li>OS Concepts (Processes, Threads)</li>
-                        <li>Software Development Lifecycle (SDLC)</li>
-                        <li>Database Design & Normalization</li>
-                    </ul>
-                </div>
+                <div class="skill-category scroll-fade"><h4>Cloud & DevOps</h4><ul><li>AWS (RDS, Lambda, S3, IAM)</li><li>Docker</li><li>Git</li><li>REST APIs</li></ul></div>
+                <div class="skill-category scroll-fade"><h4>Languages & Databases</h4><ul><li>Python</li><li>Java</li><li>C/C++</li><li>SQL & PostgreSQL</li></ul></div>
+                <div class="skill-category scroll-fade"><h4>Security</h4><ul><li>Defensive/Blue Team</li><li>Offensive/Red Team</li><li>Cybersecurity Foundations</li><li>IAM & VPC</li></ul></div>
+                <div class="skill-category scroll-fade"><h4>CS Concepts</h4><ul><li>Data Structures & Algorithms</li><li>Object-Oriented Programming</li><li>OS Concepts</li><li>SDLC</li></ul></div>
             </div>
         </section>
 
+        <!-- ============================================= -->
+        <!-- Certifications Section                        -->
+        <!-- ============================================= -->
         <section id="certifications">
             <h3>Certifications & Professional Development</h3>
             <div class="cert-card scroll-fade">
@@ -155,6 +128,9 @@
             </div>
         </section>
 
+        <!-- ============================================= -->
+        <!-- Work Experience Section                       -->
+        <!-- ============================================= -->
         <section id="experience">
             <h3>Work Experience</h3>
             <div class="work-card scroll-fade">
@@ -167,18 +143,26 @@
             </div>
         </section>
 
-        <footer id="contact">
-            <h3>Contact Me</h3>
-            <p>I'm currently seeking new opportunities. Please feel free to reach out!</p>
-            <div class="contact-links">
-                <a href="mailto:Cogginsx64@gmail.com"><i class="fas fa-envelope"></i> Cogginsx64@gmail.com</a>
-                <span>&nbsp;|&nbsp;</span>
-                <a href="https://linkedin.com/in/andrew-coggins-89126384" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <span>&nbsp;|&nbsp;</span>
-                <a href="https://github.com/acoggins2022" target="_blank"><i class="fab fa-github"></i> GitHub</a>
-            </div>
-        </footer>
-    </div>
-    <script src="script.js" defer></script>
+    </main>
+
+    <!-- ============================================= -->
+    <!-- Footer & Contact Section                      -->
+    <!-- ============================================= -->
+    <footer id="contact">
+        <h3>Contact Me</h3>
+        <p>I'm currently seeking new opportunities. Please feel free to reach out!</p>
+        <div class="contact-links">
+            <a href="mailto:Cogginsx64@gmail.com"><i class="fas fa-envelope"></i> Cogginsx64@gmail.com</a>
+            <span>&nbsp;|&nbsp;</span>
+            <a href="https://linkedin.com/in/andrew-coggins-89126384" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <span>&nbsp;|&nbsp;</span>
+            <a href="https://profile.indeed.com/p/andrewc-e4l1d6g" target="_blank" rel="noopener noreferrer"><i class="fas fa-info-circle"></i> Indeed</a>
+            <span>&nbsp;|&nbsp;</span>
+            <a href="https://github.com/acoggins2022" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+        </div>
+    </footer>
+
+    <script src="js/script.js" defer></script>
+
 </body>
 </html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Java Daily Planner - Andrew Coggins</title>
+
+    <!-- Stylesheets & Fonts -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/b09e498364.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- ============================================= -->
+    <!-- Navigation Bar                                -->
+    <!-- ============================================= -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Andrew Coggins</a>
+            
+            <!-- Hamburger button for mobile -->
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+
+            <!-- Navigation links -->
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="playground.html">Playground</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <!-- Resume button for mobile menu -->
+                <li class="nav-resume-mobile">
+                    <a href="assets/Resume.pdf" download="Andrew_Coggins_Resume.pdf" class="btn-resume">Download Resume</a>
+                </li>
+            </ul>
+            
+            <!-- Resume button for desktop view -->
+            <a href="assets/Resume.pdf" download="Andrew_Coggins_Resume.pdf" class="btn-resume-desktop">Download Resume</a>
+        </div>
+    </nav>
+
+    <!-- Main Page Content -->
+    <main class="container">
+
+        <!-- ============================================= -->
+        <!-- Project Header                              -->
+        <!-- ============================================= -->
+        <header class="project-header">
+            <h1>Project Case Study: Java Daily Planner</h1>
+            <p class="subtitle">A desktop daily planner application for organizing and managing events.</p>
+        </header>
+
+        <!-- ============================================= -->
+        <!-- Project Details Card                          -->
+        <!-- ============================================= -->
+        <article class="project-card">
+
+            <section class="project-details-section">
+                <h4>Project Overview</h4>
+                <p>"The application is a daily planner/calendar utilized to add, remove, edit, and organize events assigned by a registered user. The application has a main interface that allows users to track the events of the current day in detail and also view the title of various events occurring in the current week."</p>
+            </section>
+
+            <section class="project-details-section">
+                <h4>My Role & Contributions</h4>
+                <p>As a key developer on the team, I was responsible for implementing core application logic and UI components using the Java Swing GUI toolkit. I focused on applying Object-Oriented Design principles to create a modular and maintainable codebase. My contributions included developing the strategy for the daily and monthly calendar views, implementing the event creation window, and ensuring data persistence through Java Serialization.</p>
+            </section>
+
+            <section class="project-details-section">
+                <h4>Key Features</h4>
+                <ul>
+                    <li><strong>User Authentication:</strong> Secure user login and account creation with unique username validation.</li>
+                    <li><strong>Event Management:</strong> Users can add, edit, and remove events with details like title, date, time, priority, and description.</li>
+                    <li><strong>Multiple Calendar Views:</strong> The application provides daily, weekly, and monthly calendar views to visualize schedules.</li>
+                    <li><strong>Conflict Detection:</strong> The system automatically checks for and alerts users to scheduling conflicts between events.</li>
+                    <li><strong>Data Persistence:</strong> User accounts and event data are saved locally using Java Serialization, allowing data to persist between sessions.</li>
+                </ul>
+            </section>
+
+            <section class="project-details-section">
+                <h4>Application Architecture</h4>
+                <p>We designed the application using core OOP principles. A key part of the architecture was the implementation of the <strong>Strategy design pattern</strong> to handle the different calendar displays (daily, weekly, and monthly). The UML diagram below illustrates how this pattern allowed us to create interchangeable view strategies, making the code more modular and easier to extend.</p>
+                <img src="assets/planner-strategy-uml.png" alt="UML Diagram for the Calendar View Strategy Pattern" class="project-image">
+            </section>
+
+            <section class="project-details-section">
+                <h4>Application in Action</h4>
+                <p>Here is a screenshot of the main user interface, showing the weekly calendar view and the daily event list. The interface was built using the Java Swing toolkit to create a responsive and intuitive desktop experience.</p>
+                <img src="assets/planner-screenshot.png" alt="Screenshot of the Java Daily Planner application" class="project-image">
+            </section>
+
+            <div class="tech-tags">
+                <span>Java</span><span>Swing GUI</span><span>Object-Oriented Programming (OOP)</span><span>Java Serialization</span>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- ============================================= -->
+    <!-- Footer & Contact Section                      -->
+    <!-- ============================================= -->
+    <footer id="contact">
+        <h3>Contact Me</h3>
+        <p>I'm currently seeking new opportunities. Please feel free to reach out!</p>
+        <div class="contact-links">
+            <a href="mailto:Cogginsx64@gmail.com"><i class="fas fa-envelope"></i> Cogginsx64@gmail.com</a>
+            <span>&nbsp;|&nbsp;</span>
+            <a href="https://linkedin.com/in/andrew-coggins-89126384" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <span>&nbsp;|&nbsp;</span>
+            <a href="https://github.com/acoggins2022" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> GitHub</a>
+            <span>&nbsp;|&nbsp;</span>
+            <a href="https://profile.indeed.com/p/andrewc-e4l1d6g" target="_blank" rel="noopener noreferrer"><i class="fas fa-info-circle"></i> Indeed</a>
+        </div>
+    </footer>
+
+    <!-- Deferred JavaScript for performance -->
+    <script src="js/script.js" defer></script>
+</body>
+</html>

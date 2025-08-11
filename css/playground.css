@@ -1,0 +1,214 @@
+/* ==========================================================================
+   1. General Playground Page Styles
+   ========================================================================== */
+
+.playground-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.playground-header h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.playground-header p {
+    font-size: 1.1em;
+    color: var(--secondary-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.playground-card {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+}
+
+.playground-card h3 {
+    /* Overrides the global h3 style for a cleaner look inside cards */
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 5px;
+}
+
+.card-description {
+    margin-bottom: 30px;
+    color: #6c757d;
+}
+
+/* ==========================================================================
+   2. Statistical Calculator Styles
+   ========================================================================== */
+
+.calculator-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+.calculator-inputs label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.calculator-inputs input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-size: 1em;
+    margin-bottom: 20px;
+    box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+.calculator-inputs button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    font-weight: 700;
+    color: #fff;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.calculator-inputs button:hover {
+    background-color: #004494;
+}
+
+.calculator-results {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.calculator-results h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.calculator-results p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+}
+
+.error-text {
+    color: #d9534f;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* ==========================================================================
+   3. Tic-Tac-Toe Game Styles
+   ========================================================================== */
+
+.tictactoe-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.tictactoe-info {
+    text-align: center;
+    width: 100%;
+}
+
+#game-status {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+}
+
+.scores {
+    font-size: 1.1em;
+    color: var(--secondary-color);
+}
+
+.scores span {
+    margin: 0 15px;
+}
+
+.tictactoe-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+}
+
+.tictactoe-board .cell {
+    width: 100px;
+    height: 100px;
+    background-color: #e9ecef;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 3.5em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.tictactoe-board .cell:hover {
+    background-color: #dee2e6;
+}
+
+.cell.x {
+    color: #d9534f; /* Red for X */
+}
+
+.cell.o {
+    color: #0056b3; /* Blue for O */
+}
+
+.tictactoe-controls {
+    display: flex;
+    gap: 15px;
+}
+
+.tictactoe-controls button {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: 700;
+    color: #fff;
+    background-color: var(--secondary-color);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tictactoe-controls button:hover {
+    background-color: #343a40;
+}
+
+/* ==========================================================================
+   4. Responsive Styles
+   ========================================================================== */
+
+@media (max-width: 600px) {
+    .calculator-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 400px) {
+    .tictactoe-board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+    }
+    .tictactoe-board .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 2.8em;
+    }
+}

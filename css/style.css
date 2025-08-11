@@ -1,12 +1,13 @@
-/* General Body Styles */
+/* ==========================================================================
+   1. Global Styles & Variables
+   ========================================================================== */
+
 :root {
-    --primary-color: #0056b3; /* A deeper, professional blue */
+    --primary-color: #0056b3;    /* A deeper, professional blue */
     --secondary-color: #495057; /* Dark gray for text */
     --background-color: #f8f9fa; /* Light gray background */
     --container-bg: #ffffff;
     --border-color: #dee2e6;
-    --header-grad-start: #0056b3;
-    --header-grad-end: #007bff;
     --card-border-left: #007bff;
 }
 
@@ -15,9 +16,13 @@ body {
     background-color: var(--background-color);
     color: var(--secondary-color);
     margin: 0;
-    padding: 20px;
     line-height: 1.7;
+    padding-top: 80px; 
 }
+
+/* ==========================================================================
+   2. Layout & Container
+   ========================================================================== */
 
 .container {
     max-width: 950px;
@@ -28,7 +33,113 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
-/* Header Styles */
+/* ==========================================================================
+   3. Navigation Bar
+   ========================================================================== */
+
+.navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    transition: box-shadow 0.3s ease;
+}
+
+.navbar.scrolled {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.nav-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #212529;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center; /* Align items vertically */
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 700;
+    transition: color 0.3s ease, border-bottom-color 0.3s ease;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+/* Hide mobile-only resume button on desktop */
+.nav-resume-mobile {
+    display: none;
+}
+
+/* Mobile Navigation Toggle (Hamburger) */
+.nav-toggle {
+    display: none;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    padding: 0.5em;
+    z-index: 1001;
+}
+
+.hamburger {
+    display: block;
+    position: relative;
+    width: 2em;
+    height: 3px;
+    background: #333;
+    border-radius: 3px;
+    transition: transform 250ms ease-in-out;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #333;
+    border-radius: 3px;
+    transition: transform 250ms ease-in-out, opacity 250ms linear;
+}
+
+.hamburger::before { top: -8px; }
+.hamburger::after { bottom: -8px; }
+
+/* Hamburger animation when active */
+.nav-open .hamburger { transform: rotate(0.625turn); }
+.nav-open .hamburger::before { transform: rotate(90deg) translateX(-8px); }
+.nav-open .hamburger::after { opacity: 0; }
+
+/* ==========================================================================
+   4. Header & Typography
+   ========================================================================== */
+
 header {
     text-align: center;
     padding-bottom: 30px;
@@ -50,7 +161,6 @@ header h2 {
     margin-top: 10px;
 }
 
-/* Section Styles */
 section {
     margin-bottom: 50px;
 }
@@ -76,7 +186,42 @@ p {
     color: #495057;
 }
 
-/* Project Card Styles */
+/* ==========================================================================
+   5. Buttons & Links
+   ========================================================================== */
+
+/* This class is now for the desktop button */
+.btn-resume-desktop {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap;
+}
+
+.btn-resume-desktop:hover {
+    background-color: #004494;
+    transform: translateY(-2px);
+}
+
+.btn-link {
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.btn-link:hover { color: #004494; }
+
+/* ==========================================================================
+   6. Card Components (Projects, Certs, Work)
+   ========================================================================== */
+
 .project-card {
     background-color: #fff;
     border: 1px solid var(--border-color);
@@ -92,27 +237,80 @@ p {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.07);
 }
 
-.project-card p strong {
-    color: #343a40;
+.project-summary-card {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.btn-link {
-    display: inline-block;
-    margin-top: 15px;
-    text-decoration: none;
+.project-summary-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.07);
+}
+
+.project-summary-card h4 {
     color: var(--primary-color);
-    font-weight: 700;
-    transition: color 0.3s ease;
 }
 
-.btn-link:hover {
-    color: #004494;
+.project-summary-card p {
+    flex-grow: 1;
 }
 
-/* Skills Grid Styles */
+.tech-tags {
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tech-tags span {
+    background-color: #e9ecef;
+    color: #495057;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.85em;
+}
+
+.cert-card, .work-card {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.cert-card.placeholder {
+    background-color: #f8f9fa;
+    border-style: dashed;
+    color: #6c757d;
+}
+
+.cert-card p, .work-card p {
+    margin: 5px 0 10px 0;
+}
+
+.work-card ul {
+    list-style-position: inside;
+    padding-left: 0;
+    margin: 0;
+}
+
+.work-card li {
+    margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   7. Skills Section
+   ========================================================================== */
+
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 25px;
 }
 
@@ -149,48 +347,44 @@ p {
     color: #fff;
 }
 
-/* Education Card Styles */
-.education-card {
-    background-color: #fff;
-    border: 1px solid var(--border-color);
-    padding: 25px;
+/* ==========================================================================
+   8. Project Case Study Page Specifics
+   ========================================================================== */
+
+.project-header {
+    text-align: center;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 40px;
+}
+
+.project-header h1 {
+    font-size: 2.8em;
+}
+
+.project-header .subtitle {
+    font-size: 1.2em;
+    color: var(--secondary-color);
+    margin-top: 10px;
+}
+
+.project-image {
+    width: 100%;
+    max-width: 700px;
+    margin: 20px auto;
+    display: block;
     border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.education-card p {
-    margin: 5px 0 0 0;
-}
-
-.education-card p em {
-    color: #6c757d;
-    font-style: italic;
-}
-
-/* Certifications Card Styles */
-.cert-card {
-    background-color: #fff;
     border: 1px solid var(--border-color);
-    padding: 25px;
-    border-radius: 8px;
-    margin-bottom: 20px;
 }
 
-.cert-card.placeholder {
-    background-color: #f8f9fa;
-    border-style: dashed;
-    color: #6c757d;
-}
+/* ==========================================================================
+   9. Footer
+   ========================================================================== */
 
-.cert-card p {
-    margin: 5px 0 0 0;
-}
-
-/* Footer Styles */
 footer {
     text-align: center;
     margin-top: 50px;
-    padding-top: 30px;
+    padding: 30px 0;
     border-top: 1px solid var(--border-color);
 }
 
@@ -207,79 +401,14 @@ footer {
     color: #004494;
 }
 
-/* Icon Styling */
 .contact-links i {
     margin-right: 8px;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        padding: 25px;
-    }
-    header h1 {
-        font-size: 2.5em;
-    }
-    header h2 {
-        font-size: 1.1em;
-    }
-    h3 {
-        font-size: 1.7em;
-    }
-}
+/* ==========================================================================
+   10. Animations & Transitions
+   ========================================================================== */
 
-@media (max-width: 600px) {
-    .container {
-        padding: 20px 15px;
-    }
-    header h1 {
-        font-size: 2.2em;
-    }
-    h3 {
-        font-size: 1.6em;
-    }
-    .skills-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/* Work Experience Card Styles */
-.work-card {
-    background-color: #fff;
-    border: 1px solid var(--border-color);
-    padding: 25px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-}
-
-.work-card p {
-    margin: 5px 0 10px 0;
-}
-
-.work-card ul {
-    list-style-position: inside;
-    padding-left: 0;
-    margin: 0;
-}
-
-.work-card li {
-    margin-bottom: 10px;
-    font-size: 1.05em;
-    color: #495057;
-}
-
-.work-card li:last-child {
-    margin-bottom: 0;
-}
-
-/* Skills Grid Adjustment for 4 columns */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 25px;
-}
-
-/* Scroll Animation Styles */
 .scroll-fade {
     opacity: 0;
     transform: translateY(30px);
@@ -291,95 +420,74 @@ footer {
     transform: translateY(0);
 }
 
-.project-details {
-  margin-top: 25px;
-  padding-top: 20px;
-  border-top: 1px solid #eee;
-}
+/* ==========================================================================
+   11. Responsive Design
+   ========================================================================== */
 
-/* --- Body Padding for Sticky Nav --- */
-body {
-    /* Add padding to the top to prevent content from hiding behind the sticky nav */
-    padding-top: 80px; 
-}
-
-/* --- Sticky Navigation Bar Styles --- */
-.navbar {
-    background-color: #ffffff;
-    border-bottom: 1px solid var(--border-color);
-    padding: 1rem 2rem;
-    position: fixed; /* Changed to fixed to stick to the viewport */
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    transition: box-shadow 0.3s ease;
-}
-
-.navbar.scrolled {
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-.nav-container {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.nav-logo {
-    font-size: 1.5em;
-    font-weight: 700;
-    color: #212529;
-    text-decoration: none;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 2rem;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links a {
-    text-decoration: none;
-    color: var(--secondary-color);
-    font-weight: 700;
-    transition: color 0.3s ease, border-bottom-color 0.3s ease;
-    padding-bottom: 5px;
-    border-bottom: 2px solid transparent;
-}
-
-.nav-links a:hover, .nav-links a.active {
-    color: var(--primary-color);
-    border-bottom-color: var(--primary-color);
-}
-
-/* --- Resume Button Styles --- */
-.btn-resume {
-    background-color: var(--primary-color);
-    color: #ffffff;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    white-space: nowrap; /* Prevents button text from wrapping */
-}
-
-.btn-resume:hover {
-    background-color: #004494;
-    transform: translateY(-2px);
-}
-
-/* --- Responsive Adjustments for Nav --- */
 @media (max-width: 768px) {
+    /* --- Mobile Navigation Styles --- */
+    .nav-toggle {
+        display: block;
+    }
+
     .nav-links {
-        display: none; /* Hide links on smaller screens for simplicity */
+        position: fixed;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        inset: 0 0 0 30%;
+        flex-direction: column;
+        padding: min(20vh, 10rem) 2em;
+        gap: 2em;
+        transform: translateX(100%);
+        transition: transform 350ms ease-out;
+        align-items: flex-start; /* Align items to the left */
     }
-    .nav-container {
-        justify-content: space-around;
+
+    .nav-links.nav-open {
+        transform: translateX(0);
     }
+    
+    /* Hide desktop resume button on mobile */
+    .btn-resume-desktop {
+        display: none;
+    }
+
+    /* Show mobile resume button in the nav menu */
+    .nav-resume-mobile {
+        display: block;
+        margin-top: 2rem; /* Add some space above the button */
+    }
+    
+    /* Style the mobile resume button */
+    .nav-resume-mobile .btn-resume {
+        background-color: var(--primary-color);
+        color: #ffffff;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 700;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        white-space: nowrap;
+        border-bottom: none; /* Remove underline effect */
+    }
+
+    .nav-resume-mobile .btn-resume:hover {
+        background-color: #004494;
+        transform: translateY(-2px);
+        border-bottom: none;
+    }
+    
+    /* --- General Responsive Styles --- */
+    .container { padding: 25px; }
+    header h1 { font-size: 2.5em; }
+    header h2 { font-size: 1.1em; }
+    h3 { font-size: 1.7em; }
+}
+
+@media (max-width: 600px) {
+    .container { padding: 20px 15px; }
+    header h1 { font-size: 2.2em; }
+    h3 { font-size: 1.6em; }
+    .skills-grid, .project-grid { grid-template-columns: 1fr; }
 }
