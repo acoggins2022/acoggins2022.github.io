@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project: Video Compressor GUI - Andrew Coggins</title>
+
+    <!-- Stylesheets & Fonts -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/b09e498364.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <!-- ============================================= -->
+    <!-- Navigation Bar                                -->
+    <!-- ============================================= -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Andrew Coggins</a>
+
+            <!-- Hamburger button for mobile -->
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>   
+
+            <!-- Navigation links -->
+            <ul class="nav-links">
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="playground.html">Playground</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+                <!-- Resume button for mobile menu -->
+                <li class="nav-resume-mobile">
+                    <a href="assets/Resume.pdf" download="Andrew_Coggins_Resume.pdf" class="btn-resume">Download Resume</a>
+                </li>
+            </ul>
+            
+            <!-- Resume button for desktop -->
+            <a href="assets/Resume.pdf" download="Andrew_Coggins_Resume.pdf" class="btn-resume">Download Resume</a>
+        </div>
+    </nav>
+
+    <!-- Main Page Content -->
+    <div class="container">
+
+        <!-- ============================================= -->
+        <!-- Project Header                              -->
+        <!-- ============================================= -->
+        <header class="project-header">
+            <h1>Project Case Study: Video Compressor GUI</h1>
+            <p class="subtitle">A user-friendly desktop application for compressing video files with customizable settings.</p>
+        </header>
+
+        <!-- ============================================= -->
+        <!-- Project Details Card                          -->
+        <!-- ============================================= -->
+        <section id="project-details">
+            <div class="project-card">
+                <div class="project-details-section">
+                    <h4>Project Goal</h4>
+                    <p>This was a personal project I created to deepen my understanding of GUI development with Python and to learn how to integrate powerful command-line tools like FFmpeg into a user-friendly application. The goal was to build a standalone executable that could run on Windows without requiring any external installations.</p>
+                </div>
+
+                <img src="assets/screenshot.png" alt="Screenshot of the Video Compressor Application" class="project-image">
+
+                <div class="project-details-section">
+                    <h4>Key Features</h4>
+                    <ul>
+                        <li><strong>Easy to Use:</strong> A clean graphical interface built with Tkinter for selecting input files and output locations.</li>
+                        <li><strong>Customizable Compression:</strong> Users can adjust video quality (CRF), resolution, and audio bitrate to meet their specific needs.</li>
+                        <li><strong>Speed Control:</strong> The application exposes FFmpeg's encoding presets to allow users to balance compression speed and final file size.</li>
+                        <li><strong>Standalone Application:</strong> Packaged into a single `.exe` file that runs on Windows without needing Python or FFmpeg installed separately.</li>
+                    </ul>
+                </div>
+
+                <div class="project-details-section">
+                    <h4>How to Use</h4>
+                    <p>The application is available for download on the project's GitHub page. Simply download the `VideoCompressor.exe` file from the latest release and run it. No installation is needed!</p>
+                </div>
+
+                <div class="tech-tags">
+                    <span>Python</span><span>Tkinter</span><span>FFmpeg</span>
+                </div>
+                 <a href="https://github.com/acoggins2022/Video-Compressor-GUI" target="_blank" class="btn-link" style="margin-top: 25px;">View on GitHub &rarr;</a>
+            </div>
+        </section>
+    </div>
+
+    <footer id="contact">
+        <h3>Contact Me</h3>
+        <p>I'm currently seeking new opportunities. Please feel free to reach out!</p>
+        <div class="contact-links">
+            <a href="mailto:Cogginsx64@gmail.com"><i class="fas fa-envelope"></i> Cogginsx64@gmail.com</a>
+            <span>&nbsp;|&nbsp;</span>
+            <a href="https://linkedin.com/in/andrew-coggins-8B9126384" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <span>&nbsp;|&nbsp;</span>
+            <a href="https://github.com/acoggins2022" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <span>&nbsp;|&nbsp;</span>
+            <a href="https://profile.indeed.com/p/andrewc-e4l1d6g" target="_blank"><i class="fas fa-info-circle"></i> Indeed</a>
+        </div>
+    </footer>
+
+    <script src="js/script.js" defer></script>
+</body>
+</html>
