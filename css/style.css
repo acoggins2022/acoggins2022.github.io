@@ -388,6 +388,13 @@ footer {
     border-top: 1px solid var(--border-color);
 }
 
+.wip-notice {
+    font-style: italic;
+    font-size: 0.9em;
+    color: #6c757d; /* A subtle gray color */
+    margin-bottom: 20px;
+}
+
 .contact-links a {
     color: var(--primary-color);
     text-decoration: none;
@@ -491,3 +498,4 @@ footer {
     h3 { font-size: 1.6em; }
     .skills-grid, .project-grid { grid-template-columns: 1fr; }
 }
+
