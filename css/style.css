@@ -412,6 +412,14 @@ footer {
     margin-right: 8px;
 }
 
+/* Privacy Notice in Footer */
+.privacy-notice {
+    font-size: 0.6em;
+    font-style: italic;
+    color: #6c757d; 
+    margin-bottom: 20px;
+}
+
 /* ==========================================================================
    10. Animations & Transitions
    ========================================================================== */
@@ -498,4 +506,5 @@ footer {
     h3 { font-size: 1.6em; }
     .skills-grid, .project-grid { grid-template-columns: 1fr; }
 }
+
 
