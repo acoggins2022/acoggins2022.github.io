@@ -29,10 +29,15 @@
 }
 
 .playground-card h3 {
-    /* Overrides the global h3 style for a cleaner look inside cards */
     border-bottom: none;
     padding-bottom: 0;
     margin-bottom: 5px;
+}
+
+.playground-card h4 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.2em;
 }
 
 .card-description {
@@ -64,7 +69,7 @@
     border: 1px solid var(--border-color);
     font-size: 1em;
     margin-bottom: 20px;
-    box-sizing: border-box; /* Ensures padding doesn't affect width */
+    box-sizing: border-box;
 }
 
 .calculator-inputs button {
@@ -88,11 +93,6 @@
     background-color: #f8f9fa;
     padding: 20px;
     border-radius: 8px;
-}
-
-.calculator-results h4 {
-    margin-top: 0;
-    margin-bottom: 15px;
 }
 
 .calculator-results p {
@@ -162,13 +162,8 @@
     background-color: #dee2e6;
 }
 
-.cell.x {
-    color: #d9534f; /* Red for X */
-}
-
-.cell.o {
-    color: #0056b3; /* Blue for O */
-}
+.cell.x { color: #d9534f; }
+.cell.o { color: #0056b3; }
 
 .tictactoe-controls {
     display: flex;
@@ -191,9 +186,128 @@
     background-color: #343a40;
 }
 
+
 /* ==========================================================================
-   4. Responsive Styles
+   4. ChoiceGrid Decision Maker Styles
    ========================================================================== */
+
+.choicegrid-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* General inputs and buttons */
+.choicegrid-container input[type="text"],
+.choicegrid-container input[type="number"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    font-size: 1em;
+    box-sizing: border-box;
+}
+
+.choicegrid-container button {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#cg-add-option-btn {
+    background-color: var(--primary-color);
+    color: white;
+}
+#cg-add-option-btn:hover {
+    background-color: #004494;
+}
+
+#cg-add-criterion-btn {
+    background-color: #e9ecef;
+    color: #343a40;
+}
+#cg-add-criterion-btn:hover {
+    background-color: #dee2e6;
+}
+
+/* List items for options and criteria */
+.list-item, .criterion-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: #f8f9fa;
+    padding: 8px;
+    border-radius: 6px;
+}
+
+.list-item span, .criterion-item input[type="text"] {
+    flex-grow: 1;
+}
+
+.criterion-item input[type="range"] {
+    flex-grow: 2;
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: #d9534f;
+    font-size: 1.5em;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0 5px;
+}
+.delete-btn:hover {
+    color: #c9302c;
+}
+
+/* Scoring Table */
+#cg-scoring-table {
+    margin-top: 10px;
+}
+#cg-scoring-table th, #cg-scoring-table td {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+}
+#cg-scoring-table thead {
+    background-color: #f8f9fa;
+}
+#cg-scoring-table input {
+    width: 60px;
+    text-align: center;
+}
+
+/* Visualization Toggles */
+.cg-view-toggle {
+    background-color: #e9ecef;
+    color: #343a40;
+}
+.cg-view-toggle.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+#cg-treemap-svg {
+    width: 100%;
+}
+
+/* Hide/Show Views */
+.cg-view-content.hidden {
+    display: none;
+}
+
+/* ==========================================================================
+   5. Responsive Styles
+   ========================================================================== */
+
+@media (max-width: 768px) {
+    .choicegrid-container .grid {
+        grid-template-columns: 1fr;
+    }
+}
 
 @media (max-width: 600px) {
     .calculator-container {
