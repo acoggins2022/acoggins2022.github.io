@@ -14,6 +14,10 @@
     
     <!-- Font Awesome for Icons -->
     <script src="https://kit.fontawesome.com/b09e498364.js" crossorigin="anonymous"></script>
+
+    <!-- For ChoiceGrid: D3.js and Chart.js -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -23,25 +27,18 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">Andrew Coggins</a>
-            
-            <!-- Hamburger button for mobile -->
             <button class="nav-toggle" aria-label="toggle navigation">
                 <span class="hamburger"></span>
             </button>
-
-            <!-- Navigation links -->
             <ul class="nav-links">
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#projects">Projects</a></li>
                 <li><a href="playground.html">Playground</a></li>
                 <li><a href="index.html#contact">Contact</a></li>
-                <!-- Resume button for mobile menu -->
                 <li class="nav-resume-mobile">
                     <a href="assets/Resume.pdf" download="Andrew_Coggins_Resume.pdf" class="btn-resume">Download Resume</a>
                 </li>
             </ul>
-            
-            <!-- Resume button for desktop view -->
             <a href="assets/Resume.pdf" download="Andrew_Coggins_Resume.pdf" class="btn-resume-desktop">Download Resume</a>
         </div>
     </nav>
@@ -49,13 +46,73 @@
     <!-- Main Page Content -->
     <main class="container">
 
-        <!-- ============================================= -->
-        <!-- Playground Header                           -->
-        <!-- ============================================= -->
         <header class="playground-header">
             <h1>Interactive Playground</h1>
             <p>A collection of small web applications I've built to demonstrate various programming concepts and skills. More to come!</p>
         </header>
+
+        <!-- ============================================= -->
+        <!-- Playground Item 3: ChoiceGrid Decision Maker  -->
+        <!-- ============================================= -->
+        <section class="playground-card scroll-fade">
+            <h3>ChoiceGrid: The Visual Decision-Maker</h3>
+            <p class="card-description">A tool to help you make better decisions by weighing criteria and visualizing the results. This project demonstrates data binding, dynamic UI updates, and data visualization with D3.js and Chart.js.</p>
+            
+            <div class="choicegrid-container space-y-6">
+                <!-- Inputs -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold mb-2">1. Add Your Options</h4>
+                        <div class="flex gap-2">
+                            <input type="text" id="cg-option-input" placeholder="e.g., MacBook Air" class="flex-grow p-2 border rounded">
+                            <button id="cg-add-option-btn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add</button>
+                        </div>
+                        <div id="cg-options-list" class="mt-3 space-y-2"></div>
+                    </div>
+                    <div>
+                        <h4 class="font-semibold mb-2">2. Define Your Criteria</h4>
+                        <div id="cg-criteria-list" class="space-y-3"></div>
+                        <div class="flex justify-between items-center mt-3 pt-3 border-t">
+                            <button id="cg-add-criterion-btn" class="bg-gray-200 px-4 py-2 rounded hover:bg-gray-300">Add Criterion</button>
+                            <div class="text-right">
+                                <span class="font-semibold">Total Weight:</span>
+                                <span id="cg-total-weight" class="font-bold text-lg ml-2">0%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scoring Grid -->
+                <div id="cg-scoring-grid-container" class="hidden">
+                     <h4 class="font-semibold mb-2">3. Rate Your Options (1-10)</h4>
+                     <div class="overflow-x-auto">
+                        <table id="cg-scoring-table" class="w-full border-collapse text-center"></table>
+                     </div>
+                </div>
+
+                <!-- Results and Visualizations -->
+                <div id="cg-results-container" class="hidden">
+                    <h4 class="font-semibold mb-2">4. See The Results</h4>
+                    <div id="cg-winner-display" class="text-center bg-green-100 text-green-800 p-3 rounded-lg mb-4"></div>
+                    <div class="flex justify-center gap-2 mb-4 border-b pb-3">
+                        <button class="cg-view-toggle" data-view="treemap">Treemap</button>
+                        <button class="cg-view-toggle" data-view="barchart">Bar Chart</button>
+                        <button class="cg-view-toggle" data-view="radarchart">Radar Chart</button>
+                    </div>
+                    <div id="cg-visualizations">
+                        <div id="cg-treemap-view" class="cg-view-content">
+                            <svg id="cg-treemap-svg" class="w-full h-80"></svg>
+                        </div>
+                        <div id="cg-barchart-view" class="cg-view-content hidden">
+                            <canvas id="cg-bar-chart-canvas"></canvas>
+                        </div>
+                        <div id="cg-radarchart-view" class="cg-view-content hidden">
+                             <canvas id="cg-radar-chart-canvas"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
         <!-- ============================================= -->
         <!-- Playground Item 1: Statistical Calculator   -->
@@ -99,9 +156,7 @@
                         <span>Player O: <span id="score-o">0</span></span>
                     </div>
                 </div>
-                <div id="tictactoe-board" class="tictactoe-board">
-                    <!-- Game board cells will be generated by JavaScript -->
-                </div>
+                <div id="tictactoe-board" class="tictactoe-board"></div>
                 <div class="tictactoe-controls">
                     <button id="restart-game-btn">Restart Game</button>
                     <button id="clear-score-btn">Clear Score</button>
