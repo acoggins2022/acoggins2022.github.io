@@ -61,10 +61,12 @@ body {
     align-items: center;
 }
 
+.nav-logo img {
+    height: 60px; 
+    width: auto;  
+}
+
 .nav-logo {
-    font-size: 1.5em;
-    font-weight: 700;
-    color: #212529;
     text-decoration: none;
 }
 
@@ -506,5 +508,6 @@ footer {
     h3 { font-size: 1.6em; }
     .skills-grid, .project-grid { grid-template-columns: 1fr; }
 }
+
 
 
