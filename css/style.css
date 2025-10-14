@@ -148,7 +148,7 @@ header {
     
     /* --- Banner Background Image --- */
     background-image: url('../assets/images/Coggins_Creations_LLC_CoverPhoto.png'); 
-    background-size: cover;
+    background-size: 100% auto;
     background-position: center; 
     background-repeat: no-repeat;
 
@@ -517,6 +517,7 @@ footer {
         font-size: 1.1em;
     }
 }
+
 
 
 
