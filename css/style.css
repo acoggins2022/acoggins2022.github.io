@@ -159,7 +159,6 @@ header {
     
     /* Use a simple padding to create space from the edges */
     padding: 2rem 1rem; 
-    min-height: 350px; /* Ensures the header is tall enough to look good */
     margin-bottom: 40px; 
 }
 
@@ -517,6 +516,7 @@ footer {
         font-size: 1.1em;
     }
 }
+
 
 
 
