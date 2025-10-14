@@ -143,49 +143,44 @@ body {
    ========================================================================== */
 
 header {
+    position: relative; /* for the overlay to position correctly */
+    z-index: 1; /* Ensures header content is above the overlay */
+    
+    /* --- Banner Background Image --- */
+    background-image: url('../assets/images/Coggins_Creations_LLC_CoverPhoto.jpg'); 
+    background-size: cover; /* Stretches the image to cover the whole header */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from tiling */
+
+    /* --- Spacing & Alignment --- */
+    padding: 6rem 1rem; /* top/bottom padding to make header taller or shorter */
     text-align: center;
-    padding-bottom: 30px;
-    border-bottom: 1px solid var(--border-color);
-    margin-bottom: 40px;
+    margin-bottom: 40px; 
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(10, 25, 41, 0.7); /* Dark blue overlay with 70% opacity. */
+    z-index: -1; /* Places the overlay behind the header text */
 }
 
 header h1 {
     font-size: 3em;
     font-weight: 700;
-    color: #212529;
+    color: #ffffff; 
     margin: 0;
 }
 
 header h2 {
     font-size: 1.3em;
     font-weight: 400;
-    color: var(--primary-color);
+    color: #ffffff; 
     margin-top: 10px;
-}
-
-section {
-    margin-bottom: 50px;
-}
-
-h3 {
-    font-size: 2em;
-    font-weight: 700;
-    color: #343a40;
-    border-bottom: 3px solid var(--primary-color);
-    padding-bottom: 12px;
-    margin-bottom: 30px;
-}
-
-h4 {
-    font-size: 1.4em;
-    font-weight: 700;
-    color: #343a40;
-    margin-top: 0;
-}
-
-p {
-    font-size: 1.05em;
-    color: #495057;
 }
 
 /* ==========================================================================
@@ -508,6 +503,7 @@ footer {
     h3 { font-size: 1.6em; }
     .skills-grid, .project-grid { grid-template-columns: 1fr; }
 }
+
 
 
 
