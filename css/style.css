@@ -165,7 +165,7 @@ header::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(10, 25, 41, 0.7); /* Dark blue overlay with 70% opacity. */
+    background-color: rgba(10, 25, 41, 0.5); /* Dark blue overlay with 70% opacity. */
     z-index: -1; /* Places the overlay behind the header text */
 }
 
@@ -503,6 +503,7 @@ footer {
     h3 { font-size: 1.6em; }
     .skills-grid, .project-grid { grid-template-columns: 1fr; }
 }
+
 
 
 
