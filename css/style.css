@@ -147,7 +147,7 @@ header {
     z-index: 1; /* Ensures header content is above the overlay */
     
     /* --- Banner Background Image --- */
-    background-image: url('../assets/images/Coggins_Creations_LLC_CoverPhoto.jpg'); 
+    background-image: url('../assets/images/Coggins_Creations_LLC_CoverPhoto.png'); 
     background-size: cover; /* Stretches the image to cover the whole header */
     background-position: center; /* Centers the image */
     background-repeat: no-repeat; /* Prevents the image from tiling */
@@ -503,6 +503,7 @@ footer {
     h3 { font-size: 1.6em; }
     .skills-grid, .project-grid { grid-template-columns: 1fr; }
 }
+
 
 
 
