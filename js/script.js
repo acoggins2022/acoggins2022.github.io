@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     handleActiveNavLinks();
     handleNavbarShadow();
     handleScrollFadeAnimation();
+    handleThemeToggle();
+    handleSectionHighlighting();
 
 });
 
@@ -27,6 +29,9 @@ function handleMobileNavigation() {
     const closeMenu = () => {
         navLinks.classList.remove('nav-open');
         navToggle.classList.remove('nav-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+        navToggle.focus();
+        document.removeEventListener('keydown', trapTabKey);
     };
 
     // --- Toggle menu on hamburger click ---
@@ -35,6 +40,15 @@ function handleMobileNavigation() {
         e.stopPropagation(); 
         navLinks.classList.toggle('nav-open');
         navToggle.classList.toggle('nav-open');
+        const expanded = navToggle.classList.contains('nav-open');
+        navToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+        if (expanded) {
+            document.addEventListener('keydown', trapTabKey);
+            const firstLink = navLinks.querySelector('a');
+            if (firstLink) firstLink.focus();
+        } else {
+            document.removeEventListener('keydown', trapTabKey);
+        }
     });
 
     // --- Close menu when a navigation link is clicked ---
@@ -49,6 +63,22 @@ function handleMobileNavigation() {
             closeMenu();
         }
     });
+
+    // Focus trap logic
+    function trapTabKey(e) {
+        if (e.key !== 'Tab') return;
+        const focusable = navLinks.querySelectorAll('a, button, [tabindex]:not([tabindex="-1"])');
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        }
+    }
 }
 
 
@@ -64,6 +94,7 @@ function handleActiveNavLinks() {
         const linkPage = link.getAttribute('href').split('/').pop();
         if (linkPage === currentPage) {
             link.classList.add('active');
+            link.setAttribute('aria-current', 'page');
         }
     });
 }
@@ -105,4 +136,63 @@ function handleScrollFadeAnimation() {
     });
 
     animatedElements.forEach(el => observer.observe(el));
+}
+
+/**
+ * Highlights active section in the nav as you scroll.
+ */
+function handleSectionHighlighting() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    if (sections.length === 0 || navLinks.length === 0) return;
+
+    const byId = (id) => Array.from(navLinks).find(a => (a.getAttribute('href') || '').includes(`#${id}`));
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const link = byId(entry.target.id);
+            if (!link) return;
+            if (entry.isIntersecting) {
+                navLinks.forEach(a => a.classList.remove('active'));
+                link.classList.add('active');
+                navLinks.forEach(a => a.removeAttribute('aria-current'));
+                link.setAttribute('aria-current', 'page');
+            }
+        });
+    }, { rootMargin: '-40% 0px -55% 0px', threshold: 0.01 });
+
+    sections.forEach(sec => observer.observe(sec));
+}
+
+/**
+ * Handles dark mode toggling and persistence via localStorage.
+ */
+function handleThemeToggle() {
+    const root = document.documentElement; // <html>
+    const toggle = document.querySelector('.theme-toggle');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    const saved = localStorage.getItem('theme');
+    const initialTheme = saved || (prefersDark ? 'dark' : 'light');
+    if (initialTheme === 'dark') {
+        root.classList.add('theme-dark');
+    }
+
+    if (!toggle) return;
+
+    const updateIcon = () => {
+        const isDark = root.classList.contains('theme-dark');
+        toggle.innerHTML = isDark ? '<i class="fas fa-sun" aria-hidden="true"></i>' : '<i class="fas fa-moon" aria-hidden="true"></i>';
+        toggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+        toggle.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+    };
+
+    updateIcon();
+
+    toggle.addEventListener('click', () => {
+        root.classList.toggle('theme-dark');
+        const isDark = root.classList.contains('theme-dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateIcon();
+    });
 }

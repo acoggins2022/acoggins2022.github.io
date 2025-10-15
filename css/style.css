@@ -11,6 +11,16 @@
     --card-border-left: #007bff;
 }
 
+/* Dark theme variables */
+.theme-dark {
+    --primary-color: #6ea8fe;
+    --secondary-color: #e2e6ea;
+    --background-color: #0b1523;
+    --container-bg: #0f1b2d;
+    --border-color: #1f2a3a;
+    --card-border-left: #6ea8fe;
+}
+
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--background-color);
@@ -18,6 +28,17 @@ body {
     margin: 0;
     line-height: 1.7;
     padding-top: 80px; 
+}
+
+/* Accent color for supported controls */
+input, select, textarea, progress, meter {
+    accent-color: var(--primary-color);
+}
+
+/* Accessible focus styles */
+:focus-visible {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 3px;
 }
 
 /* ==========================================================================
@@ -48,6 +69,8 @@ body {
     z-index: 1000;
     transition: box-shadow 0.3s ease;
 }
+
+.theme-dark .navbar { background-color: var(--container-bg); }
 
 .navbar.scrolled {
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
@@ -113,7 +136,7 @@ body {
     position: relative;
     width: 2em;
     height: 3px;
-    background: #333;
+    background: var(--secondary-color);
     border-radius: 3px;
     transition: transform 250ms ease-in-out;
 }
@@ -125,7 +148,7 @@ body {
     left: 0;
     right: 0;
     height: 3px;
-    background: #333;
+    background: var(--secondary-color);
     border-radius: 3px;
     transition: transform 250ms ease-in-out, opacity 250ms linear;
 }
@@ -174,18 +197,38 @@ header::before {
 }
 
 header h1 {
-    font-size: 3em;
+    font-size: 3rem;
     font-weight: 700;
     color: #ffffff; 
     margin: 0;
 }
 
 header h2 {
-    font-size: 1.3em;
+    font-size: 1.25rem;
     font-weight: 400;
     color: #ffffff; 
     margin-top: 10px;
 }
+
+.hero-cta {
+    margin-top: 18px;
+    display: flex;
+    gap: 12px;
+}
+
+.btn-primary, .btn-secondary {
+    display: inline-block;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-primary { background: var(--primary-color); color: #fff; }
+.btn-primary:hover { transform: translateY(-2px); }
+.btn-secondary { background: transparent; color: #fff; border: 2px solid #fff; }
+.btn-secondary:hover { background: rgba(255,255,255,0.1); transform: translateY(-2px); }
 
 /* ==========================================================================
    5. Buttons & Links
@@ -248,6 +291,15 @@ header h2 {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+.theme-dark .project-summary-card,
+.theme-dark .project-card,
+.theme-dark .cert-card,
+.theme-dark .work-card,
+.theme-dark .skill-category {
+    background-color: #132238; /* darker container */
+    border-color: #22324a;     /* darker border */
+}
+
 .project-summary-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(0,0,0,0.07);
@@ -274,7 +326,12 @@ header h2 {
     padding: 5px 10px;
     border-radius: 5px;
     font-family: 'Roboto Mono', monospace;
-    font-size: 0.85em;
+    font-size: 0.85rem;
+}
+
+.theme-dark .tech-tags span {
+    background-color: #1c2c45;
+    color: #cfd6df;
 }
 
 .cert-card, .work-card {
@@ -291,6 +348,12 @@ header h2 {
     color: #6c757d;
 }
 
+.theme-dark .cert-card.placeholder {
+    background-color: #0f1b2d;
+    border-color: #22324a;
+    color: #cfd6df;
+}
+
 .cert-card p, .work-card p {
     margin: 5px 0 10px 0;
 }
@@ -305,13 +368,23 @@ header h2 {
     margin-bottom: 10px;
 }
 
+.theme-dark h1,
+.theme-dark h2,
+.theme-dark h3,
+.theme-dark h4,
+.theme-dark p,
+.theme-dark li,
+.theme-dark a { color: var(--secondary-color); }
+
+.theme-dark .btn-link { color: var(--primary-color); }
+
 /* ==========================================================================
    7. Skills Section
    ========================================================================== */
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 25px;
 }
 
@@ -335,7 +408,7 @@ header h2 {
     border-radius: 5px;
     margin-bottom: 10px;
     font-family: 'Roboto Mono', monospace;
-    font-size: 0.95em;
+    font-size: 0.95rem;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -346,6 +419,15 @@ header h2 {
 .skill-category li:hover {
     background-color: var(--primary-color);
     color: #fff;
+}
+
+/* Progressive enhancement: parent styling with :has() */
+@supports(selector(:has(*))) {
+    .skill-category:has(li:hover) {
+        box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+        transform: translateY(-2px);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
 }
 
 /* ==========================================================================
@@ -365,8 +447,23 @@ header h2 {
 
 .project-header .subtitle {
     font-size: 1.2em;
-    color: var(--secondary-color);
+    color: #ffffff !important;
     margin-top: 10px;
+}
+
+.theme-dark .project-header .subtitle {
+    color: #cfd6df !important;
+}
+
+/* Ensure project header subtitles are always readable */
+header.project-header p.subtitle,
+.project-header p.subtitle {
+    color: #ffffff !important;
+}
+
+.theme-dark header.project-header p.subtitle,
+.theme-dark .project-header p.subtitle {
+    color: #cfd6df !important;
 }
 
 .project-image {
@@ -421,6 +518,43 @@ footer {
     margin-bottom: 20px;
 }
 
+/* Skip link for keyboard users */
+.skip-link {
+    position: absolute;
+    left: -9999px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip-link:focus {
+    position: fixed;
+    left: 16px;
+    top: 16px;
+    width: auto;
+    height: auto;
+    padding: 10px 14px;
+    background: var(--primary-color);
+    color: #fff;
+    border-radius: 8px;
+    z-index: 2000;
+}
+
+/* Theme toggle button */
+.theme-toggle {
+    margin-left: 12px;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--secondary-color);
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.theme-toggle:hover { background: rgba(0,0,0,0.04); }
+.theme-dark .theme-toggle:hover { background: rgba(255,255,255,0.06); }
+
 /* ==========================================================================
    10. Animations & Transitions
    ========================================================================== */
@@ -434,6 +568,21 @@ footer {
 .scroll-fade.visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .scroll-fade {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+    
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }
 
 /* ==========================================================================
@@ -458,6 +607,10 @@ footer {
         transform: translateX(100%);
         transition: transform 350ms ease-out;
         align-items: flex-start; /* Align items to the left */
+    }
+
+    .theme-dark .nav-links {
+        background: rgba(15, 27, 45, 0.95);
     }
 
     .nav-links.nav-open {

@@ -14,9 +14,20 @@
 
 .playground-header p {
     font-size: 1.1em;
-    color: var(--secondary-color);
+    color: #ffffff !important;
     max-width: 600px;
     margin: 0 auto;
+}
+
+/* Ensure playground header text is always readable */
+header.playground-header p,
+.playground-header p {
+    color: #ffffff !important;
+}
+
+.theme-dark header.playground-header p,
+.theme-dark .playground-header p {
+    color: #cfd6df !important;
 }
 
 .playground-card {
@@ -26,6 +37,11 @@
     border-radius: 12px;
     margin-bottom: 40px;
     box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+}
+
+.theme-dark .playground-card {
+    background-color: #132238;
+    border-color: #22324a;
 }
 
 .playground-card h3 {
@@ -44,6 +60,8 @@
     margin-bottom: 30px;
     color: #6c757d;
 }
+
+.theme-dark .card-description { color: #cfd6df; }
 
 /* ==========================================================================
    2. Statistical Calculator Styles
@@ -95,6 +113,8 @@
     border-radius: 8px;
 }
 
+.theme-dark .calculator-results { background-color: #0f1b2d; }
+
 .calculator-results p {
     font-size: 1.1em;
     margin-bottom: 10px;
@@ -133,6 +153,8 @@
     color: var(--secondary-color);
 }
 
+.theme-dark .scores { color: var(--secondary-color); }
+
 .scores span {
     margin: 0 15px;
 }
@@ -161,6 +183,9 @@
 .tictactoe-board .cell:hover {
     background-color: #dee2e6;
 }
+
+.theme-dark .tictactoe-board .cell { background-color: #1c2c45; }
+.theme-dark .tictactoe-board .cell:hover { background-color: #22324a; }
 
 .cell.x { color: #d9534f; }
 .cell.o { color: #0056b3; }
@@ -208,6 +233,12 @@
     box-sizing: border-box;
 }
 
+.theme-dark .choicegrid-container input[type="text"],
+.theme-dark .choicegrid-container input[type="number"] {
+    background-color: #0f1b2d;
+    color: var(--secondary-color);
+}
+
 .choicegrid-container button {
     padding: 10px 20px;
     font-size: 1em;
@@ -234,6 +265,12 @@
     background-color: #dee2e6;
 }
 
+.theme-dark #cg-add-criterion-btn {
+    background-color: #1c2c45;
+    color: #cfd6df;
+}
+.theme-dark #cg-add-criterion-btn:hover { background-color: #22324a; }
+
 /* List items for options and criteria */
 .list-item, .criterion-item {
     display: flex;
@@ -243,6 +280,8 @@
     padding: 8px;
     border-radius: 6px;
 }
+
+.theme-dark .list-item, .theme-dark .criterion-item { background-color: #0f1b2d; }
 
 .list-item span, .criterion-item input[type="text"] {
     flex-grow: 1;
@@ -276,6 +315,8 @@
 #cg-scoring-table thead {
     background-color: #f8f9fa;
 }
+
+.theme-dark #cg-scoring-table thead { background-color: #0f1b2d; }
 #cg-scoring-table input {
     width: 60px;
     text-align: center;

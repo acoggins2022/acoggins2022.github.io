@@ -14,6 +14,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Playground - Andrew Coggins</title>
+    <meta name="description" content="Interactive playground by Andrew Coggins: demos, tools, and visualizations.">
+    <meta name="author" content="Andrew Coggins">
     
     <link rel="apple-touch-icon" sizes="180x180" href="assets/logo/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/logo/favicon-32x32.png">
@@ -42,12 +44,12 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="index.html" class="nav-logo">
-                <img src="assets/logo/Coggins_Creations_Logo.png" alt="Coggins Creations, LLC Logo">
+                <img src="assets/logo/Coggins_Creations_Logo.png" alt="Coggins Creations, LLC Logo" width="60" height="60" loading="lazy" decoding="async">
             </a>
-            <button class="nav-toggle" aria-label="toggle navigation">
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
                 <span class="hamburger"></span>
             </button>
-            <ul class="nav-links">
+            <ul class="nav-links" id="primary-navigation">
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#projects">Projects</a></li>
                 <li><a href="playground.html">Playground</a></li>
@@ -57,6 +59,9 @@
                 </li>
             </ul>
             <a href="assets/Andrew_Coggins-Resume.pdf" download="Andrew_Coggins_Resume.pdf" class="btn-resume-desktop">Download Resume</a>
+            <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
     </nav>
 
@@ -65,7 +70,7 @@
 
         <header class="playground-header">
             <h1>Interactive Playground</h1>
-            <p style="color: #ffffff;">A collection of small web applications I've built to demonstrate various programming concepts and skills. More to come!</p>
+            <p>A collection of small web applications I've built to demonstrate various programming concepts and skills. More to come!</p>
         </header>
 
         <!-- ============================================= -->

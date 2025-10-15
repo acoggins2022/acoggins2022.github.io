@@ -14,6 +14,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project: Java Daily Planner - Andrew Coggins</title>
+    <meta name="description" content="Java Daily Planner case study by Andrew Coggins: features, architecture, and screenshots.">
+    <meta name="author" content="Andrew Coggins">
 
     <!-- Stylesheets & Fonts -->
     <link rel="stylesheet" href="css/style.css">
@@ -31,15 +33,17 @@
     <!-- ============================================= -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="index.html" class="nav-logo">Andrew Coggins</a>
+            <a href="index.html" class="nav-logo">
+                <img src="assets/logo/Coggins_Creations_Logo.png" alt="Coggins Creations, LLC Logo" width="60" height="60" loading="lazy" decoding="async">
+            </a>
             
             <!-- Hamburger button for mobile -->
-            <button class="nav-toggle" aria-label="toggle navigation">
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
                 <span class="hamburger"></span>
             </button>
 
             <!-- Navigation links -->
-            <ul class="nav-links">
+            <ul class="nav-links" id="primary-navigation">
                 <li><a href="index.html#about">About</a></li>
                 <li><a href="index.html#projects">Projects</a></li>
                 <li><a href="playground.html">Playground</a></li>
@@ -52,6 +56,9 @@
             
             <!-- Resume button for desktop view -->
             <a href="assets/Andrew_Coggins-Resume.pdf" download="Andrew_Coggins_Resume.pdf" class="btn-resume-desktop">Download Resume</a>
+            <button class="theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                <i class="fas fa-moon"></i>
+            </button>
         </div>
     </nav>
 
@@ -95,13 +102,13 @@
             <section class="project-details-section">
                 <h4>Application Architecture</h4>
                 <p>We designed the application using core OOP principles. A key part of the architecture was the implementation of the <strong>Strategy design pattern</strong> to handle the different calendar displays (daily, weekly, and monthly). The UML diagram below illustrates how this pattern allowed us to create interchangeable view strategies, making the code more modular and easier to extend.</p>
-                <img src="assets/planner-strategy-uml.png" alt="UML Diagram for the Calendar View Strategy Pattern" class="project-image">
+                <img src="assets/planner-strategy-uml.png" alt="UML Diagram for the Calendar View Strategy Pattern" class="project-image" loading="lazy" decoding="async" width="700" height="420">
             </section>
 
             <section class="project-details-section">
                 <h4>Application in Action</h4>
                 <p>Here is a screenshot of the main user interface, showing the weekly calendar view and the daily event list. The interface was built using the Java Swing toolkit to create a responsive and intuitive desktop experience.</p>
-                <img src="assets/planner-screenshot.png" alt="Screenshot of the Java Daily Planner application" class="project-image">
+                <img src="assets/planner-screenshot.png" alt="Screenshot of the Java Daily Planner application" class="project-image" loading="lazy" decoding="async" width="700" height="420">
             </section>
 
             <div class="tech-tags">
